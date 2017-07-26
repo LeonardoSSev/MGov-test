@@ -26,22 +26,25 @@
             Excluir cliente
         </a>
     </div>
-    <div class="pusher">
-        <h1 class=""ui header">Buscar cliente</h1>
-        <div class="ui divider"></div>
-        <div class="ui search searchForm">
-            <label for="cpf">Busque pelo CPF:</label>
-            <div class="ui icon input">
-                <input class="fixed prompt" type="text" id="cpf" placeholder="Informe o CPF">
-                <i class="search icon"></i>
+    <div class="container">
+        <div class="pusher">
+            <h1 class=""ui header">Buscar cliente</h1>
+            <div class="ui horizontal divider"><i class="search icon"></i></div>
+            <div class="ui search searchForm">
+                <h4 class="ui header">Busque pelo CPF:</h4>
+                <div class="ui icon input">
+                    <input class="fixed prompt" type="text" id="cpf" name="cpf" placeholder="Informe o CPF">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+                <button onclick="getDados()" class="ui teal button">Buscar</button>
             </div>
-            <div class="results"></div>
-            <button onclick="getDados()" class="ui teal button">Buscar</button>
+            <div id="divDados"></div>
         </div>
     </div>
-    <div class="ui container" id="divDados"></div>
-
-
+    <?php
+        include "assets/includes/footer.php";
+    ?>
     <script src="assets/vendor/jquery-3.2.1.min.js" type="text/javascript" language="javascript"></script>
     <script src="assets/vendor/semantic-ui/semantic.min.js" type="text/javascript" language="javascript"></script>
     <script src="assets/js/funcoes.js" type="text/javascript" language="javascript"></script>

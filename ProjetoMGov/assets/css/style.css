@@ -8,10 +8,11 @@ body{
 }
 
 .pusher {
-    height: 100vh;
-    padding: 40px;
+    height: 95vh;
+    padding: 40px 40px 10px;
 }
 
-.divider{
-    left: 0;
+.footer a, .footer h4{
+    font-size: large;
+    font-weight: bolder;
 }
