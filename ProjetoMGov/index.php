@@ -9,7 +9,7 @@
             <i class="search icon"></i>
             Buscar cliente
         </a>
-        <a href="#" class="item">
+        <a href="inserir.php" class="item">
             <i class="add user icon"></i>
             Adicionar cliente
         </a>
@@ -53,7 +53,6 @@
                                     <i class="search icon"></i>Buscar</button>
                             </div>
                             <div class="field" id="divDados"></div>
-                            <h3 id="teste"></h3>
                         </div>
                     </div>
                 </div>

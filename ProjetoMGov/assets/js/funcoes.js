@@ -68,7 +68,8 @@ function getDados() {
             var cliente = JSON.parse(request.responseText);
 
             cliente.email = protegeEmail(cliente.email);
-
+            cliente.cpf = protegeCPF(cliente.cpf);
+            cliente.celular = protegeCelular(cliente.celular);
 
             document.getElementById("divDados").innerHTML =
                 "<div class='ui clearing segment'>" +
@@ -93,11 +94,9 @@ function getDados() {
 }
 
 function protegeEmail(email){
-
     var posArroba = email.indexOf("@");
     var posPonto = email.lastIndexOf(".");
     var novoEmail;
-
     
     for(var i = 1; i < posArroba-1; i++){
         email = email.replace(email.charAt(i), "*");    
@@ -106,6 +105,22 @@ function protegeEmail(email){
     novoEmail = email.replace(email.substring(posArroba+2, posPonto-1), "***");
 
     return novoEmail;
+}
+
+function protegeCPF(cpf){
+    var inicio = cpf.substring(0, 3);
+    var final = cpf.substring(9, 11);
+    var novoCpf = inicio + ".***.***-" + final;
+    return novoCpf;
+}
+
+function protegeCelular(celular){
+    var novoCelular;
+    var inicio = celular.substring(0, 2);
+    var meio = celular.substring(2, 4);
+    var final = celular.substring(9, 11);
+    novoCelular = "(" + inicio + ")" + meio + "*****" + final;
+    return novoCelular;
 }
 
 $('document').ready(function (e) {
