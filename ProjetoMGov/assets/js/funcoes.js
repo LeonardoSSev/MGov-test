@@ -1,3 +1,31 @@
+function buscarMetodo(){
+    var metodo = document.getElementById("busca");
+    var metodoSelecionado = metodo.options[metodo.selectedIndex].value;
+    document.getElementById("teste").innerHTML = metodoSelecionado;
+    if(metodoSelecionado == "") {
+        document.getElementById("searchButton").className="ui teal disabled button";
+    } else{
+        document.getElementById("searchButton").className="ui teal button";
+        if(metodoSelecionado == "nome"){
+            document.getElementById("inputNome").type="text";
+            document.getElementById("inputCPF").type="hidden";
+            document.getElementById("inputCel").type="hidden";
+        } else if(metodoSelecionado == "cpf"){
+            document.getElementById("inputNome").type="hidden";
+            document.getElementById("inputCPF").type="text";
+            document.getElementById("inputCel").type="hidden";
+        } else{
+            document.getElementById("inputNome").type="hidden";
+            document.getElementById("inputCPF").type="hidden";
+            document.getElementById("inputCel").type="text";
+        }
+    }
+}
+
+function clear(){
+
+}
+
 function getRequest() {
     var ajax;
     if (window.XMLHttpRequest) {
@@ -10,7 +38,7 @@ function getRequest() {
 
 function getDados() {
     var request = getRequest();
-    var cpf = document.getElementById("cpf").value;
+    var cpf = document.getElementById("inputCPF").value;
     cpf = cpf.replace(".", "");
     cpf = cpf.replace(".", "");
     cpf = cpf.replace("-", "");
@@ -18,9 +46,10 @@ function getDados() {
     request.open("GET", url, true);
     request.onreadystatechange = function () {
         if (request.readyState < 4) {
+            document.getElementById("divDados").innerHTML = "Dados não encontrados";
             document.getElementById("divDados").innerHTML = cpf;
         } else if (request.readyState == 4 && request.status == 404) {
-            document.getElementById("divDados").innerHTML = "Dados não encontrados.";
+            document.getElementById("divDados").innerHTML = "Erro 404. Página não encontrada.";
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
             document.getElementById("divDados").innerHTML =
@@ -45,8 +74,9 @@ function getDados() {
 }
 
 $('document').ready(function (e) {
-    $('#cpf').mask("999.999.999-99");
-    $(this.cliente.email).mask("A*****A@A****A.AAA");
+    $('.ui.dropdown').dropdown();
+    $('#inputCPF').mask("999.999.999-99");
+
         $('.searchForm').hide().transition({
             debug: true,
             animation: 'fly left',
@@ -60,6 +90,8 @@ $('document').ready(function (e) {
             duration: 1000,
             interval: 200
         });
+
+
 
     }
 )

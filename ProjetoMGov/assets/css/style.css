@@ -24,3 +24,8 @@ body{
 #divDados{
     padding-top: 10px;
 }
+
+
+#colunaBusca{
+    max-width: 650px;
+}
