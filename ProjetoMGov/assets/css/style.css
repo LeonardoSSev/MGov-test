@@ -8,11 +8,19 @@ body{
 }
 
 .pusher {
-    height: 95vh;
+    height: 93vh;
     padding: 40px 40px 10px;
 }
 
 .footer a, .footer h4{
     font-size: large;
     font-weight: bolder;
+}
+
+.segment{
+    font-size: 12px;
+}
+
+#divDados{
+    padding-top: 10px;
 }
