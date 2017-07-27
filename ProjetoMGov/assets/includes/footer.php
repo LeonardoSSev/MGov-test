@@ -6,6 +6,7 @@
                 <div class="ui inverted link list">
                     <a class="item" href="https://www.facebook.com/mgovbr/" target="_blank"><i class="facebook icon"></i></i:>Facebook</a>
                     <a class="item" href="https://www.linkedin.com/company-beta/10858808/" target="_blank"><i class="linkedin icon"></i>LinkedIn</a>
+                    <a class="item" href="https://twitter.com/MgovBrasil" target="_blank"><i class="twitter icon"></i>Twitter</a>
                 </div>
             </div>
             <div class="eight wide right floated column">

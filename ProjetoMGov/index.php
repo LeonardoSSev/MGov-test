@@ -38,13 +38,13 @@
                             <div class="field">
                                 <select name="metodos" class="ui fluid search dropdown" onchange="buscarMetodo()" id="busca">
                                     <option value="">Buscar</option>
-                                    <option value="nome">Nome</option>
+                                    <option value="email">E-mail</option>
                                     <option value="cpf">CPF</option>
                                     <option value="cel">Celular</option>
                                 </select>
                             </div>
                             <div class="field">
-                                    <input type="hidden" id="inputNome" placeholder="Nome Completo">
+                                    <input type="hidden" id="inputEmail" placeholder="E-mail">
                                     <input type="hidden" id="inputCPF" placeholder="CPF">
                                     <input type="hidden" id="inputCel" placeholder="Celular">
                             </div>
