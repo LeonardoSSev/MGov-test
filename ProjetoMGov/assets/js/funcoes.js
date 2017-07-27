@@ -63,7 +63,6 @@ function getDados() {
     request.onreadystatechange = function () {
         if (request.readyState < 4) {
             document.getElementById("divDados").innerHTML = "Dados não encontrados";
-
         } else if (request.readyState == 4 && request.status == 404) {
             document.getElementById("divDados").innerHTML = "Erro 404. Página não encontrada.";
         } else if (request.readyState == 4 && request.status == 200) {
