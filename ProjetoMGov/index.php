@@ -33,7 +33,7 @@
                             Selecione um meio de busca
                         </div>
                     </h2>
-                    <div class="ui large form">
+                    <div class="ui large form searchForm">
                         <div class="ui stacked segment">
                             <div class="field">
                                 <select name="metodos" class="ui fluid search dropdown" onchange="buscarMetodo()" id="busca">

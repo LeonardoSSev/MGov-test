@@ -55,7 +55,6 @@ function getDados() {
         dado = dado.replace(")", "");
         dado = dado.replace("-", "");
     }
-
     var metodo = buscarMetodo() + "=";
     var url = "dados.php?" + metodo + dado;
 
@@ -67,7 +66,10 @@ function getDados() {
             document.getElementById("divDados").innerHTML = "Erro 404. Página não encontrada.";
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
-            document.getElementById("teste").innerHTML = dado;
+
+            cliente.email = protegeEmail(cliente.email);
+
+
             document.getElementById("divDados").innerHTML =
                 "<div class='ui clearing segment'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +
@@ -84,11 +86,26 @@ function getDados() {
                         "<h5 class='ui header'>Celular:</h5>" + cliente.celular +
                     "</div>" +
                 "</div>"
-
         }
     };
     request.send();
     dado ="";
+}
+
+function protegeEmail(email){
+
+    var posArroba = email.indexOf("@");
+    var posPonto = email.lastIndexOf(".");
+    var novoEmail;
+
+    
+    for(var i = 1; i < posArroba-1; i++){
+        email = email.replace(email.charAt(i), "*");    
+    }
+
+    novoEmail = email.replace(email.substring(posArroba+2, posPonto-1), "***");
+
+    return novoEmail;
 }
 
 $('document').ready(function (e) {
