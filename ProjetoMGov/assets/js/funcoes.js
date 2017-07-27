@@ -9,16 +9,23 @@ function buscarMetodo(){
             document.getElementById("inputEmail").type="text";
             document.getElementById("inputCPF").type="hidden";
             document.getElementById("inputCel").type="hidden";
+            document.getElementById("inputCPF").value="";
+            document.getElementById("inputCel").value="";
         } else if(metodoSelecionado == "cpf"){
             document.getElementById("inputEmail").type="hidden";
             document.getElementById("inputCPF").type="text";
             document.getElementById("inputCel").type="hidden";
+            document.getElementById("inputEmail").value="";
+            document.getElementById("inputCel").value="";
         } else{
             document.getElementById("inputEmail").type="hidden";
             document.getElementById("inputCPF").type="hidden";
             document.getElementById("inputCel").type="text";
+            document.getElementById("inputEmail").value="";
+            document.getElementById("inputCPF").value="";
         }
     }
+    return metodoSelecionado;
 }
 
 function getRequest() {
@@ -33,39 +40,35 @@ function getRequest() {
 
 function getDados() {
     var request = getRequest();
-    var email = document.getElementById("inputEmail").value;
-    var cpf = document.getElementById("inputCPF").value;
-    var cel = document.getElementById("inputCel").value;
+    var dado;
 
-    cpf = cpf.replace(".", "");
-    cpf = cpf.replace(".", "");
-    cpf = cpf.replace("-", "");
-
-    cel = cel.replace("(", "");
-    cel = cel.replace(")", "");
-    cel = cel.replace("-", "");
-
-    var urlEmail = "dados.php?email=" + email;
-    var urlCpf = "dados.php?cpf=" + cpf;
-    var urlCel = "dados.php?cel=" + cel;
-
-    if(email != "" && cpf == "" && cel == ""){
-        request.open("GET", urlEmail, true);
-    } else if(email == "" && cpf != "" && cel == ""){
-        request.open("GET", urlCpf, true);
-    } else{
-        request.open("GET", urlCel, true);
+    if(document.getElementById("inputEmail").value != "" && document.getElementById("inputCPF").value == "" && document.getElementById("inputCel").value == ""){
+        dado = document.getElementById("inputEmail").value;
+    } else if(document.getElementById("inputEmail").value == "" && document.getElementById("inputCPF").value != "" && document.getElementById("inputCel").value == ""){
+        dado = document.getElementById("inputCPF").value;
+        dado = dado.replace(".", "");
+        dado = dado.replace(".", "");
+        dado = dado.replace("-", "");
+    } else if(document.getElementById("inputEmail").value == "" && document.getElementById("inputCPF").value == "" && document.getElementById("inputCel").value != ""){
+        dado = document.getElementById("inputCel").value;
+        dado = dado.replace("(", "");
+        dado = dado.replace(")", "");
+        dado = dado.replace("-", "");
     }
+
+    var metodo = buscarMetodo() + "=";
+    var url = "dados.php?" + metodo + dado;
+
+    request.open("GET", url, true);
     request.onreadystatechange = function () {
         if (request.readyState < 4) {
-            document.getElementById("divDados").innerHTML = "Dados ainda não encontrados";
-
-            document.getElementById("divDados").innerHTML = cpf + email + cel;
+            document.getElementById("divDados").innerHTML = "Dados não encontrados";
 
         } else if (request.readyState == 4 && request.status == 404) {
             document.getElementById("divDados").innerHTML = "Erro 404. Página não encontrada.";
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
+            document.getElementById("teste").innerHTML = dado;
             document.getElementById("divDados").innerHTML =
                 "<div class='ui clearing segment'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +
@@ -82,12 +85,11 @@ function getDados() {
                         "<h5 class='ui header'>Celular:</h5>" + cliente.celular +
                     "</div>" +
                 "</div>"
+
         }
-        email="";
-        cpf="";
-        cel="";
     };
     request.send();
+    dado ="";
 }
 
 $('document').ready(function (e) {

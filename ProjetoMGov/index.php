@@ -52,9 +52,8 @@
                                 <button onclick="getDados()" type="hidden" id="searchButton" class="ui teal button disabled">
                                     <i class="search icon"></i>Buscar</button>
                             </div>
-                            <div class="field" id="divDados">
-
-                            </div>
+                            <div class="field" id="divDados"></div>
+                            <h3 id="teste"></h3>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,6 @@ CREATE TABLE `cliente` (
 
 -- Dados para a tabela `cliente`
 INSERT INTO `cliente`(`id`, `nome`, `email`, `cpf`, `celular`) VALUES
-(1, 'Fernanda Teste','fernanda@gmail.com', "11111111111", "13999887766"),
-(2, 'Joao Teste', 'joao@gmail.com', "22222222222", "13977889966"),
-(3, 'Leonardo Teste','leo@gmail.com', "33333333333", "13999776655");
+(1, "Fernanda Teste","fernanda@gmail.com", "11111111111", "13999887766"),
+(2, "Joao Teste", "joao@gmail.com", "22222222222", "13977889966"),
+(3, "Leonardo Teste","leo@gmail.com", "33333333333", "13999776655");
