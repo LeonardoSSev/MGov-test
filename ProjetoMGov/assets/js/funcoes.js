@@ -1,7 +1,6 @@
 function buscarMetodo(){
     var metodo = document.getElementById("busca");
     var metodoSelecionado = metodo.options[metodo.selectedIndex].value;
-    document.getElementById("teste").innerHTML = metodoSelecionado;
     if(metodoSelecionado == "") {
         document.getElementById("searchButton").className="ui teal disabled button";
     } else{
@@ -20,10 +19,6 @@ function buscarMetodo(){
             document.getElementById("inputCel").type="text";
         }
     }
-}
-
-function clear(){
-
 }
 
 function getRequest() {
@@ -53,7 +48,7 @@ function getDados() {
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
             document.getElementById("divDados").innerHTML =
-                "<div class='ui clearing segment slide-down'>" +
+                "<div class='ui clearing segment'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +
                     "<div class='field'>" +
                         "<h5 class='ui header'>Nome:</h5>" + cliente.nome +
@@ -76,6 +71,7 @@ function getDados() {
 $('document').ready(function (e) {
     $('.ui.dropdown').dropdown();
     $('#inputCPF').mask("999.999.999-99");
+    $('#inputCel').mask("(99)99999-9999");
 
         $('.searchForm').hide().transition({
             debug: true,
@@ -83,15 +79,5 @@ $('document').ready(function (e) {
             duration: 1000,
             interval: 200
         });
-
-        $('.slide-down').transition({
-            debug: true,
-            animation: 'slide down',
-            duration: 1000,
-            interval: 200
-        });
-
-
-
     }
 )

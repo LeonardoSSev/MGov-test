@@ -23,7 +23,6 @@
         </a>
     </div>
     <div class="container">
-        <h1 id="teste"></h1>
         <div class="pusher">
             <h1 class=""ui header">Buscar cliente</h1>
             <div class="ui horizontal divider"><i class="search icon"></i></div>
