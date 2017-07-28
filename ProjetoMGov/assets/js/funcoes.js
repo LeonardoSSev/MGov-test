@@ -67,6 +67,7 @@ function getDados() {
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
 
+            document.getElementById("inputIdEdit").value = cliente.id;
             document.getElementById("inputNomeEdit").value = cliente.nome;
             document.getElementById("inputEmailEdit").value = cliente.email;
             document.getElementById("inputCPFEdit").value = cliente.cpf;
@@ -152,9 +153,4 @@ $(document).ready(function () {
 $(document).on('click', '.yellow.button, .red.button', function(){
     modal = $(this).attr('data-modal');
     $('#'+modal+'.modal').modal('show');
-})
-
-$(document).on('click', '.closeModal', function(){
-    modal = $(this).attr('data-modal');
-    $('#'+modal+'.modal').modal('toggle');
-})
+});
