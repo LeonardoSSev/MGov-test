@@ -10,7 +10,7 @@
       </div>
   </div>
   <div class="actions">
-    <button class="ui button">
+    <button class="ui button close">
       Cancelar
     </button>
     <div class="ui teal button">

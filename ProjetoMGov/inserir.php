@@ -13,14 +13,6 @@
             <i class="add user icon"></i>
             Adicionar cliente
         </a>
-        <a href="#" class="item">
-            <i class="edit icon"></i>
-            Alterar cliente
-        </a>
-        <a href="remover.php" class="item">
-            <i class="remove user icon"></i>
-            Excluir cliente
-        </a>
     </div>
     <div class="container">
         <div class="pusher">

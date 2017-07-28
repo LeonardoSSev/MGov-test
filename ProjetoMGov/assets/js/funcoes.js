@@ -148,3 +148,7 @@ $(document).on('click', '.yellow.button, .red.button', function(){
     $('#'+modal+'.modal').modal('show');
 })
 
+$(document).on('click', '.closeModal', function(){
+    modal = $(this).attr('data-modal');
+    $('#'+modal+'.modal').modal('toggle');
+})
