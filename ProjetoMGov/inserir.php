@@ -17,7 +17,7 @@
             <i class="edit icon"></i>
             Alterar cliente
         </a>
-        <a href="#" class="item">
+        <a href="remover.php" class="item">
             <i class="remove user icon"></i>
             Excluir cliente
         </a>

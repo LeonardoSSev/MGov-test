@@ -1,11 +1,11 @@
 <DOCTYPE html>
-<html>
+    <html>
     <?php
-        include "assets/includes/head.php";
+    include "assets/includes/head.php";
     ?>
     <body>
     <div class="ui left visible vertical inverted teal sidebar labeled icon menu">
-        <a href="index.php" class="active item">
+        <a href="index.php" class="item">
             <i class="search icon"></i>
             Buscar cliente
         </a>
@@ -17,20 +17,20 @@
             <i class="edit icon"></i>
             Alterar cliente
         </a>
-        <a href="remover.php" class="item">
+        <a href="remover.php" class="active item">
             <i class="remove user icon"></i>
             Excluir cliente
         </a>
     </div>
     <div class="container">
         <div class="pusher">
-            <h1 class=""ui header">Buscar cliente</h1>
-            <div class="ui horizontal divider"><i class="search icon"></i></div>
+            <h1 class=""ui header">Excluir cliente</h1>
+            <div class="ui horizontal divider"><i class="remove user icon"></i></div>
             <div class="ui middle aligned center aligned grid">
                 <div class="column" style="max-width: 650px;">
                     <h2 class="ui header">
                         <div class="content">
-                            Selecione um meio de busca
+                            Exclua um cliente
                         </div>
                     </h2>
                     <div class="ui large form searchForm">
@@ -44,12 +44,12 @@
                                 </select>
                             </div>
                             <div class="field">
-                                    <input type="hidden" id="inputEmail" placeholder="E-mail">
-                                    <input type="hidden" id="inputCPF" placeholder="CPF">
-                                    <input type="hidden" id="inputCel" placeholder="Celular">
+                                <input type="hidden" id="inputEmail" placeholder="E-mail">
+                                <input type="hidden" id="inputCPF" placeholder="CPF">
+                                <input type="hidden" id="inputCel" placeholder="Celular">
                             </div>
                             <div class="field">
-                                <button onclick="getDados()" id="searchButton" class="ui teal button disabled">
+                                <button onclick="getDados()" type="hidden" id="searchButton" class="ui teal button disabled">
                                     <i class="search icon"></i>Buscar</button>
                             </div>
                             <div class="field" id="divDados"></div>
@@ -60,9 +60,8 @@
         </div>
     </div>
     <?php
-        include "assets/includes/footer.php";
-        include "assets/includes/modals.php";
-        include "assets/includes/scripts.php";
+    include "assets/includes/footer.php";
+    include "assets/includes/scripts.php";
     ?>
     </body>
-</html>
+    </html>

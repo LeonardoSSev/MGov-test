@@ -6,7 +6,7 @@ function buscarMetodo(){
     } else{
         document.getElementById("searchButton").className="ui teal button";
         if(metodoSelecionado == "email"){
-            document.getElementById("inputEmail").type="text";
+            document.getElementById("inputEmail").type="email";
             document.getElementById("inputCPF").type="hidden";
             document.getElementById("inputCel").type="hidden";
             document.getElementById("inputCPF").value="";
@@ -72,7 +72,7 @@ function getDados() {
             cliente.celular = protegeCelular(cliente.celular);
 
             document.getElementById("divDados").innerHTML =
-                "<div class='ui clearing segment'>" +
+                "<div class='ui clearing segment' id='info'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +
                     "<div class='field'>" +
                         "<h5 class='ui header'>Nome:</h5>" + cliente.nome +
@@ -85,6 +85,11 @@ function getDados() {
                     "</div>" +
                     "<div class='field'>" +
                         "<h5 class='ui header'>Celular:</h5>" + cliente.celular +
+                    "</div>" +
+                    "<div class='ui divider'></div>" +
+                    "<div class='field'>" +
+                        "<button data-modal='changeModal' class='ui yellow button'>Alterar</button>" +
+                        "<button data-modal='deleteModal' class='ui red button'>Excluir</button>" +
                     "</div>" +
                 "</div>"
         }
@@ -123,16 +128,23 @@ function protegeCelular(celular){
     return novoCelular;
 }
 
-$('document').ready(function (e) {
+$(document).ready(function () {
     $('.ui.dropdown').dropdown();
     $('#inputCPF').mask("999.999.999-99");
     $('#inputCel').mask("(99)99999-9999");
 
-        $('.searchForm').hide().transition({
-            debug: true,
-            animation: 'fly left',
-            duration: 1000,
-            interval: 200
-        });
+
+    $('.searchForm').hide().transition({
+        debug: true,
+        animation: 'fly left',
+        duration: 1000,
+        interval: 200
+    });
     }
 )
+
+$(document).on('click', '.yellow.button, .red.button', function(){
+    modal = $(this).attr('data-modal');
+    $('#'+modal+'.modal').modal('show');
+})
+

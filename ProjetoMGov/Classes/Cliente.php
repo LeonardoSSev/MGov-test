@@ -49,6 +49,16 @@ class Cliente {
         mysqli_close($c);
     }
 
+//    private function verifyLastIndex(){
+//        $c =  new mysqli("localhost", "root", "", "projeto");
+//        if($c->connect_error){
+//            return "Erro ao estabelecer conexão com o banco";
+//        } else {
+//            $query = mysqli_query($c, "SELECT MAX id FROM cliente");
+//            $resultado = mysqli_fetch_assoc($query);
+//        }
+//    }
+
     public function getId(){
         return $this->id;
     }
