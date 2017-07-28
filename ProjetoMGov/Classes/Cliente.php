@@ -43,7 +43,7 @@ class Cliente {
             return "Erro ao estabelecer conexão com o banco";
         } else {
             $ps = mysqli_prepare($c, "DELETE FROM cliente WHERE ID = ?") or die(mysqli_error($c));
-            mysqli_stmt_bind_param($ps, "i", $idP);
+            mysqli_stmt_bind_param($ps, "i", $id);
             mysqli_stmt_execute($ps);
         }
         mysqli_close($c);

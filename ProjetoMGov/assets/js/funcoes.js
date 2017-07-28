@@ -70,7 +70,7 @@ function getDados() {
             cliente.email = protegeEmail(cliente.email);
             cliente.cpf = protegeCPF(cliente.cpf);
             cliente.celular = protegeCelular(cliente.celular);
-
+            document.getElementById("inputID").value = cliente.id;
             document.getElementById("divDados").innerHTML =
                 "<div class='ui clearing segment' id='info'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +

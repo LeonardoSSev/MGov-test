@@ -5,8 +5,7 @@
   <div class="content container">
       <h3 class="ui dividing header">Alterar informações sobre o cliente</h3>
       <div class="field">
-
-
+        <!--conteudo-->
       </div>
   </div>
   <div class="actions">
@@ -21,23 +20,20 @@
 
 <div class="ui small modal" id="deleteModal">
     <div class="header">
+        <i class="close icon"></i>
         Excluir
     </div>
-    <div class="content">
-        <div class="ui clearing segment">
-            <h3 class="ui dividing header">Excluir cliente</h3>
-            <div class="field">
-
-            </div>
+    <div class="content container">
+        <h3 class="ui dividing header">Excluir cliente</h3>
+        <div class="field">
+            Deseja realmente excluir este cliente?
         </div>
-        <div class="actions">
-            <div class="ui button">
-                Cancel
-            </div>
-            <div class="ui button">
-                Okay
-            </div>
-        </div>
+    </div>
+    <form class="actions" method="POST" action="remover.php">
+        <input type="hidden" value="" name="id" id="inputID">
+        <button class="ui button" href="index.php">Não</button>
+        <input type="submit" class="ui red button" value="Sim">
+    </form>
     </div>
 </div>
 
