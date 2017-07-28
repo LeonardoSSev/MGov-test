@@ -5,7 +5,7 @@
     ?>
     <body>
     <div class="ui left visible vertical inverted teal sidebar labeled icon menu">
-        <a href="index.php" class="active item">
+        <a href="buscar.php" class="active item">
             <i class="search icon"></i>
             Buscar cliente
         </a>

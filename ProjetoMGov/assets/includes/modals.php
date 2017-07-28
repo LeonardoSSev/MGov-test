@@ -23,7 +23,7 @@
                   <div class="field">
                       <h3 class="ui header">E-mail:</h3>
                       <div class="ui input">
-                        <input class="prompt" type="text" id="inputEmailEdit" name="inputEmailEdit" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <input class="prompt" type="text" id="inputEmailEdit" max="30" maxlength="100" name="inputEmailEdit" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                       </div>
                   </div>
                   <div class="field">
@@ -34,7 +34,7 @@
                   </div>
               </div>
           </div>
-          <div class="field actions">
+          <div class="actions">
               <input class="ui teal button" type="submit" value="Alterar">
           </div>
       </form>
@@ -52,7 +52,7 @@
     </div>
     <form class="actions" method="POST" action="remover.php">
         <input type="hidden" value="" name="id" id="inputID">
-        <input type="submit" class="ui red button" value="Sim">
+        <input type="submit" class="ui red button" value="Excluir">
     </form>
     </div>
 </div>
