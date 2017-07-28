@@ -29,3 +29,7 @@ body{
 #colunaBusca{
     max-width: 650px;
 }
+
+#modalChange form, #modalChange .field{
+    padding-top: 10px;
+}

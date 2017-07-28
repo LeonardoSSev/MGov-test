@@ -49,15 +49,22 @@ class Cliente {
         mysqli_close($c);
     }
 
-//    private function verifyLastIndex(){
-//        $c =  new mysqli("localhost", "root", "", "projeto");
-//        if($c->connect_error){
-//            return "Erro ao estabelecer conexão com o banco";
-//        } else {
-//            $query = mysqli_query($c, "SELECT MAX id FROM cliente");
-//            $resultado = mysqli_fetch_assoc($query);
-//        }
-//    }
+    public static function update($id, $nm, $em, $cpf, $cel){
+        $c = mysqli_connect("localhost", "root", "", "projeto");
+        if(!$c){
+            return "Erro ao estabelecer conexão com o banco";
+        } else {
+
+            if($ps = mysqli_prepare($c, "UPDATE cliente SET NOME=?, EMAIL=?, CPF=?, CELULAR=?, WHERE ID = ?") or die(mysqli_error($c))){
+                mysqli_stmt_bind_param($ps, "ssssi", $nm, $em, $cpf, $cel, $idP);
+                mysqli_stmt_execute($ps);
+            }else{
+                echo '<script> alert("Não atualizou"); </script>';
+            }
+        }
+        mysqli_close($c);
+    }
+
 
     public function getId(){
         return $this->id;

@@ -67,10 +67,16 @@ function getDados() {
         } else if (request.readyState == 4 && request.status == 200) {
             var cliente = JSON.parse(request.responseText);
 
+            document.getElementById("inputNomeEdit").value = cliente.nome;
+            document.getElementById("inputEmailEdit").value = cliente.email;
+            document.getElementById("inputCPFEdit").value = cliente.cpf;
+            document.getElementById("inputCelularEdit").value = cliente.celular;
+
             cliente.email = protegeEmail(cliente.email);
             cliente.cpf = protegeCPF(cliente.cpf);
             cliente.celular = protegeCelular(cliente.celular);
             document.getElementById("inputID").value = cliente.id;
+
             document.getElementById("divDados").innerHTML =
                 "<div class='ui clearing segment' id='info'>" +
                     "<h3 class='ui dividing header'>Informações sobre o cliente</h3>" +
