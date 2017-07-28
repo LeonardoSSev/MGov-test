@@ -1,5 +1,7 @@
 <?php
     require_once 'Classes/Cliente.php';
-    Cliente::update($_POST["inputIdEdit"], $_POST["inputEmailEdit"], $_POST["inputCelularEdit"]);
+    $especiais = array("-", "(", ")");
+    $celular = str_replace($especiais, "", $_POST['inputCelularEdit']);
+    Cliente::update($_POST["inputIdEdit"], $_POST["inputEmailEdit"], $celular);
     header("location: index.php");
 ?>

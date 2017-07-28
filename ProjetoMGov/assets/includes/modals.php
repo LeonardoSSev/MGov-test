@@ -23,7 +23,7 @@
                   <div class="field">
                       <h3 class="ui header">E-mail:</h3>
                       <div class="ui input">
-                        <input class="prompt" type="text" id="inputEmailEdit" name="inputEmailEdit">
+                        <input class="prompt" type="text" id="inputEmailEdit" name="inputEmailEdit" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                       </div>
                   </div>
                   <div class="field">
@@ -34,7 +34,7 @@
                   </div>
               </div>
           </div>
-          <div class="actions">
+          <div class="field actions">
               <input class="ui teal button" type="submit" value="Alterar">
           </div>
       </form>

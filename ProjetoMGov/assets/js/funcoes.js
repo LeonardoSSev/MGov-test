@@ -70,7 +70,7 @@ function getDados() {
             document.getElementById("inputIdEdit").value = cliente.id;
             document.getElementById("inputNomeEdit").value = cliente.nome;
             document.getElementById("inputEmailEdit").value = cliente.email;
-            document.getElementById("inputCPFEdit").value = cliente.cpf;
+            document.getElementById("inputCPFEdit").value = mascaraJSONCpf(cliente.cpf);
             document.getElementById("inputCelularEdit").value = cliente.celular;
 
             cliente.email = protegeEmail(cliente.email);
@@ -126,6 +126,11 @@ function protegeCPF(cpf){
     return novoCpf;
 }
 
+function mascaraJSONCpf(cpf){
+    var novoCpf = cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9, 11);
+    return novoCpf;
+}
+
 function protegeCelular(celular){
     var novoCelular;
     var inicio = celular.substring(0, 2);
@@ -139,7 +144,7 @@ $(document).ready(function () {
     $('.ui.dropdown').dropdown();
     $('#inputCPF').mask("999.999.999-99");
     $('#inputCel').mask("(99)99999-9999");
-
+    $('#inputCelularEdit').mask("(99)99999-9999");
 
     $('.searchForm').hide().transition({
         debug: true,
