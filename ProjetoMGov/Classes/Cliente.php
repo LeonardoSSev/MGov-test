@@ -49,13 +49,13 @@ class Cliente {
         mysqli_close($c);
     }
 
-    public static function update($em, $cel, $id){
+    public static function update($id, $em, $cel){
         $c = mysqli_connect("localhost", "root", "", "projeto");
         if(!$c){
             return "Erro ao estabelecer conexão com o banco";
         } else {
 
-            if($ps = mysqli_prepare($c, "UPDATE cliente SET EMAIL=?, CELULAR=?, WHERE ID = ?") or die(mysqli_error($c))){
+            if($ps = mysqli_prepare($c, "UPDATE cliente SET EMAIL=?, CELULAR=? WHERE ID=?") or die(mysqli_error($c))){
                 mysqli_stmt_bind_param($ps, "ssi", $em, $cel, $id);
                 mysqli_stmt_execute($ps);
             }else{
